@@ -1,0 +1,100 @@
+body {
+    background-image: url("../images/light_honeycomb.png");
+}
+
+.container {
+    background-color: #fff88c;
+    color: grey;
+    margin: 0 auto;
+    margin-top: 50px;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid white;
+}
+
+.btn {
+    color: white;
+    background: darkgrey;
+}
+
+.btn:hover {
+    color: darkgrey;
+    background: white;
+}
+
+/* time section div styles */
+#time {
+    display: inline-block;
+    font-size: x-large;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    padding: 10px;
+}
+
+/* answer section div styles */
+#answers{
+    display: block;
+    margin: 0 auto;
+    width: 300px;
+}
+
+/* individual answer choice styles */
+.answerChoices {
+    padding: 10px;
+    text-align: center;
+    font-size: large;
+    width: 300px;
+    border: 1px solid darkgray;
+}
+
+/* individual answer choice styles on hover*/
+.answerChoices:hover {
+    color: #fff88c;
+    background-color: darkgrey;
+    padding: 10px;
+    cursor: pointer;
+}
+
+/* question section div styles */
+#question {
+    margin: 0 auto;
+    width: 200px;
+    font-size: large;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+
+/* status section div styles */
+#status {
+    margin: 0 auto;
+    width: 120px;
+    font-size: large;
+    font-weight: bold;
+}
+
+/* correctAnswer section div styles */
+#correctAnswer {
+    display: block;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 300px;
+    font-size: large;
+}
+
+/* correctImage section div styles */
+#correctImage {
+    display: block;
+    margin: 0 auto;
+}
+
+img {
+    margin-top: 20px;
+    width: 250px;
+    height: 200px;
+    border: 3px solid white;
+}
+
+
+
+
+
