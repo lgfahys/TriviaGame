@@ -25,7 +25,8 @@ body {
 
 /* time section div styles */
 #time {
-    display: inline-block;
+    display: block;
+    margin: 0 auto;
     font-size: x-large;
     margin-bottom: 15px;
     margin-top: 15px;
@@ -58,8 +59,8 @@ body {
 
 /* question section div styles */
 #question {
+    display: block;
     margin: 0 auto;
-    width: 200px;
     font-size: large;
     font-weight: bold;
     margin-bottom: 30px;
@@ -67,8 +68,8 @@ body {
 
 /* status section div styles */
 #status {
+    display: block;
     margin: 0 auto;
-    width: 120px;
     font-size: large;
     font-weight: bold;
 }

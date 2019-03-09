@@ -290,7 +290,7 @@ $(document).ready(function () {
 
         $("#question").empty();
         $("#answers").empty();
-        $("#correctAnswer").append("The correct answer was " + questions[questionTracker].correctAnswer);
+        $("#correctAnswer").append("The correct answer was: " + questions[questionTracker].correctAnswer);
         $("#status").show();
         $("#status").append("Your answer was incorrect")
         $("#correctImage").append(correctImage);
