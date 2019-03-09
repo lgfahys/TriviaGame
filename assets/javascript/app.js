@@ -228,7 +228,7 @@ $(document).ready(function () {
     };
 
     function nextQuestionTimer() {
-        nextTimer = 8;
+        nextTimer = 5;
         interval = setInterval(decrease, 1000);
     };
 
@@ -241,7 +241,7 @@ $(document).ready(function () {
         };
 
         function stopNextQuestionTimer() {
-            clearInterval(intervalId);
+            clearInterval(interval);
         };
     };
 
