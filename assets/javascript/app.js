@@ -2,9 +2,10 @@ $(document).ready(function () {
 
     // setting up global variables
 
-    var counter = 45;
+    var counter = 30;
     var questionTracker = 0;
     var intervalId;
+    var intervalId1;
     var incorrectGuesses = 0;
     var correctGuesses = 0;
 
@@ -75,26 +76,62 @@ $(document).ready(function () {
                 { answer: "8", value: false },
             ],
             correctAnswer: "6",
-            image: "<img src='assets/images/beewings.png'>",
+            image: "<img src='assets/images/beelegs.png'>",
         },
     ];
 
-    // setting up start game function
+    // function start game
 
     function startGame() {
-        $("#restart").hide();
         $("#start").show();
+        $("#restart").hide();
+        $("#time").empty();
+        $("#question").empty();
+        $("#answers").empty();
+        $("#status").empty();
+        $("#correctAnswer").empty();
+        $("#correctImage").empty();
+        counter = 30;
+        incorrectGuesses = 0;
+        correctGuesses = 0;
         questionTracker = 0;
+    }
+
+    function restartGame() {
+        stopTimer();
+        $("#correctAnswer").empty();
+        $("#correctImage").empty();
+        $("#status").empty();
+        $("#status").append("You finished! Here are your results..." + "</br>"
+        + "Correct Answers: " + correctGuesses + "</br>"
+        + "Incorrect Answers: " + incorrectGuesses);
+        $("#restart").show();
+
+        $("#restart").click(function()
+        {
+            startGame();
+        });
+        
     };
 
+
     function askQuestion() {
+        if (questionTracker < questions.length){
+
+        // starting timer
+
+        startTimer();
+
+        // emptying the correctImage, correctAnswer & status divs
+
+        $("#correctImage").empty();
+        $("#correctAnswer").empty();
+        $("#status").empty();
 
         // setting up variables for the questions and answers
 
         var question = (questions[questionTracker].question);
 
-        startTimer();
-        $("#time").show();
         $("#question").show(question);
         $("#question").append(question);
         $("#answers").show(
@@ -103,20 +140,69 @@ $(document).ready(function () {
             questions[questionTracker].answerChoices[2].answer +
             questions[questionTracker].answerChoices[3].answer) +
             $("#answers").append(
-                '<p class = "answerChoices">' + questions[questionTracker].answerChoices[0].answer +
-                '</p><p class = "answerChoices">' + questions[questionTracker].answerChoices[1].answer +
-                '</p><p class = "answerChoices">' + questions[questionTracker].answerChoices[2].answer +
-                '</p><p class = "answerChoices">' + questions[questionTracker].answerChoices[3].answer) +
+                '<p class = "answerChoices" id = "answer_0">' + questions[questionTracker].answerChoices[0].answer +
+                '</p><p class = "answerChoices" id = "answer_1">' + questions[questionTracker].answerChoices[1].answer +
+                '</p><p class = "answerChoices" id = "answer_2">' + questions[questionTracker].answerChoices[2].answer +
+                '</p><p class = "answerChoices" id = "answer_3">' + questions[questionTracker].answerChoices[3].answer) +
             '</p>';
         $("#restart").hide();
         $("#start").hide();
 
-        $(answers).attr("style", "text-align: center");
+        // checking if the value of the answer selected is true
+
+        $("#answer_0").click(function () {
+
+            if (questions[questionTracker].answerChoices[0].value === true) {
+                win();
+            } else {
+                lose();
+            }
+           
+    
+        });
+
+        $("#answer_1").click(function () {
+        
+            if (questions[questionTracker].answerChoices[1].value === true) {
+                win();
+            } else {
+                lose();
+            }
+           
+    
+        });
+
+        $("#answer_2").click(function () {
+            
+            if (questions[questionTracker].answerChoices[2].value === true) {
+                win();
+            } else {
+                lose();
+            }
+           
+    
+        });
+
+        $("#answer_3").click(function () {
+        
+            if (questions[questionTracker].answerChoices[3].value === true) {
+                win();
+            } else {
+                lose();
+            }
+           
+            
+        });
+    } else {
+        restartGame();
+    }
+
     };
 
     // setting up question timer
 
     function startTimer() {
+        counter = 30;
         intervalId = setInterval(decrement, 1000);
     };
 
@@ -139,30 +225,78 @@ $(document).ready(function () {
         clearInterval(intervalId);
     };
 
+    function nextQuestionTimer() {
+        nextTimer = 8;
+        intervalId1 = setInterval(decrease, 1000);
+    };
+
+    function decrease() {
+        nextTimer--;
+
+        if (nextTimer === 0) {
+            stopNextQuestionTimer();
+            askQuestion();
+        };
+
+        function stopNextQuestionTimer() {
+            clearInterval(intervalId);
+        };
+    };
+
     // setting up timeout function for question timer
 
     function timeOut() {
 
+        stopTimer();
+        nextQuestionTimer();
+
         var correctImage = questions[questionTracker].image;
 
-        $("#question").hide();
-        $("#answers").hide();
+        $("#question").empty();
+        $("#answers").empty();
         $("#correctAnswer").append("The correct answer was " + questions[questionTracker].correctAnswer);
         $("#status").show();
         $("#status").append("Out of Time!")
+        $("#correctImage").append(correctImage);
         incorrectGuesses++;
         questionTracker++;
-        $("#correctImage").append(correctImage);
-        // display correct answer
-        // display image
+
     };
 
     function win() {
-        alert("you win!");
+
+        stopTimer();
+        nextQuestionTimer();
+
+        var correctImage = questions[questionTracker].image;
+
+        $("#question").empty();
+        $("#answers").empty();
+        $("#correctAnswer").append("The correct answer was " + questions[questionTracker].correctAnswer);
+        $("#status").show();
+        $("#status").append("Your answer was correct!")
+        $("#correctImage").append(correctImage);
+        correctGuesses++;
+        questionTracker++;
+
     };
 
     function lose() {
-        alert("you lose!");
+        
+        stopTimer();
+        nextQuestionTimer();
+
+        var correctImage = questions[questionTracker].image;
+
+        $("#question").empty();
+        $("#answers").empty();
+        $("#correctAnswer").append("The correct answer was " + questions[questionTracker].correctAnswer);
+        $("#status").show();
+        $("#status").append("Your answer was incorrect")
+        $("#correctImage").append(correctImage);
+        incorrectGuesses++;
+        questionTracker++;
+
     };
 
 
@@ -173,17 +307,5 @@ $(document).ready(function () {
     $("#start").click(function () {
         askQuestion();
     });
-
-
-
-    $().click(function () {
-        
-        userGuess = $(this);
-        alert(this);
-       
-
-    });
-
-
 
 });

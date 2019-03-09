@@ -13,6 +13,7 @@ body {
 }
 
 .btn {
+    margin-top: 10px;
     color: white;
     background: darkgrey;
 }
