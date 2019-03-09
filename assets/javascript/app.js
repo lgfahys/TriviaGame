@@ -2,10 +2,10 @@ $(document).ready(function () {
 
     // setting up global variables
 
-    var counter = 30;
+    var counter = 15;
     var questionTracker = 0;
     var intervalId;
-    var intervalId1;
+    var interval;
     var incorrectGuesses = 0;
     var correctGuesses = 0;
 
@@ -85,13 +85,14 @@ $(document).ready(function () {
     function startGame() {
         $("#start").show();
         $("#restart").hide();
+        $("#time").hide();
         $("#time").empty();
         $("#question").empty();
         $("#answers").empty();
         $("#status").empty();
         $("#correctAnswer").empty();
         $("#correctImage").empty();
-        counter = 30;
+        counter = 15;
         incorrectGuesses = 0;
         correctGuesses = 0;
         questionTracker = 0;
@@ -117,7 +118,7 @@ $(document).ready(function () {
 
     function askQuestion() {
         if (questionTracker < questions.length){
-
+        
         // starting timer
 
         startTimer();
@@ -127,6 +128,7 @@ $(document).ready(function () {
         $("#correctImage").empty();
         $("#correctAnswer").empty();
         $("#status").empty();
+        $("#time").show();
 
         // setting up variables for the questions and answers
 
@@ -202,7 +204,7 @@ $(document).ready(function () {
     // setting up question timer
 
     function startTimer() {
-        counter = 30;
+        counter = 15;
         intervalId = setInterval(decrement, 1000);
     };
 
@@ -227,7 +229,7 @@ $(document).ready(function () {
 
     function nextQuestionTimer() {
         nextTimer = 8;
-        intervalId1 = setInterval(decrease, 1000);
+        interval = setInterval(decrease, 1000);
     };
 
     function decrease() {

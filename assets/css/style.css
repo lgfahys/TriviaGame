@@ -1,5 +1,6 @@
 body {
     background-image: url("../images/light_honeycomb.png");
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 }
 
 .container {
@@ -10,6 +11,14 @@ body {
     text-align: center;
     padding: 20px;
     border: 1px solid white;
+}
+
+h1 {
+    text-shadow: 2px 2px white;
+    color: gold;
+    font-style: oblique;
+    font-weight: bold;
+    font-size: 60px;
 }
 
 .btn {
@@ -27,10 +36,14 @@ body {
 #time {
     display: block;
     margin: 0 auto;
+    width: 300px;
     font-size: x-large;
     margin-bottom: 15px;
     margin-top: 15px;
     padding: 10px;
+    border: 2px outset white;
+    background-color: indianred;
+    color: white;
 }
 
 /* answer section div styles */
@@ -46,7 +59,7 @@ body {
     text-align: center;
     font-size: large;
     width: 300px;
-    border: 1px solid darkgray;
+    border: 1px outset darkgray;
 }
 
 /* individual answer choice styles on hover*/
@@ -93,7 +106,7 @@ img {
     margin-top: 20px;
     width: 250px;
     height: 200px;
-    border: 3px solid white;
+    border: 3px outset honeydew;
 }
 
 
