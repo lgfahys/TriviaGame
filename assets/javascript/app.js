@@ -2,14 +2,18 @@ $(document).ready(function () {
 
     // setting up global variables
 
+    // question timer
     var counter = 15;
+    // next question timer
+    var nextTimer = 5;
+    // tracks the question we are on
     var questionTracker = 0;
     var intervalId;
     var interval;
     var incorrectGuesses = 0;
     var correctGuesses = 0;
 
-    // setting up questions
+    // setting up questions array
 
     var questions = [
         {
@@ -80,7 +84,7 @@ $(document).ready(function () {
         },
     ];
 
-    // function start game
+    // setting up functions
 
     function startGame() {
         $("#start").show();
@@ -93,6 +97,7 @@ $(document).ready(function () {
         $("#correctAnswer").empty();
         $("#correctImage").empty();
         counter = 15;
+        nextTimer = 5;
         incorrectGuesses = 0;
         correctGuesses = 0;
         questionTracker = 0;
@@ -123,8 +128,6 @@ $(document).ready(function () {
 
         startTimer();
 
-        // emptying the correctImage, correctAnswer & status divs
-
         $("#correctImage").empty();
         $("#correctAnswer").empty();
         $("#status").empty();
@@ -150,7 +153,7 @@ $(document).ready(function () {
         $("#restart").hide();
         $("#start").hide();
 
-        // checking if the value of the answer selected is true
+        // checking if the value of the answer selected is true & calling win/lose function based on value
 
         $("#answer_0").click(function () {
 
@@ -301,10 +304,11 @@ $(document).ready(function () {
 
     };
 
-
-    // calling functions
+    // calling the startGame function on load
 
     window.onload = startGame();
+
+    // when user clicks start, call askQuestion function
 
     $("#start").click(function () {
         askQuestion();

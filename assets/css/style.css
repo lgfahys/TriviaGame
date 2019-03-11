@@ -5,7 +5,7 @@ body {
 
 .container {
     background-color: #fff88c;
-    color: grey;
+    color: darkgrey;
     margin: 0 auto;
     margin-top: 50px;
     text-align: center;
@@ -24,7 +24,7 @@ h1 {
 .btn {
     margin-top: 10px;
     color: white;
-    background: darkgrey;
+    background: darkgray;
 }
 
 .btn:hover {
@@ -42,7 +42,7 @@ h1 {
     margin-top: 15px;
     padding: 10px;
     border: 2px outset white;
-    background-color: indianred;
+    background-color: gold;
     color: white;
 }
 
@@ -64,14 +64,15 @@ h1 {
 
 /* individual answer choice styles on hover*/
 .answerChoices:hover {
-    color: #fff88c;
-    background-color: darkgrey;
+    color: white;
+    background-color: darkgray;
     padding: 10px;
     cursor: pointer;
 }
 
 /* question section div styles */
 #question {
+    color: grey;
     display: block;
     margin: 0 auto;
     font-size: large;
@@ -106,7 +107,7 @@ img {
     margin-top: 20px;
     width: 250px;
     height: 200px;
-    border: 3px outset honeydew;
+    border: 3px solid white;
 }
 
 
