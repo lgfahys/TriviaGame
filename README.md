@@ -1,6 +1,4 @@
 # Trivia Game
-Homework 5
-
 A Honey Bee themed Trivia Game.
 
 Instructions:
@@ -9,3 +7,5 @@ Instructions:
 - View the correct resoponse (wait 5 seconds to proceed to next question)
 - Repeat until all questions are answered
 - View your results & restart game!
+
+https://lgfahys.github.io/TriviaGame/
